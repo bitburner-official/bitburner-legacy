@@ -1098,13 +1098,13 @@ PlayerObject.prototype.workForFaction = function(numCycles) {
     //Constantly update the rep gain rate
     switch (this.factionWorkType) {
         case __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].FactionWorkHacking:
-            this.workRepGainRate = (this.hacking_skill + this.intelligence) / __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].MaxSkillLevel * this.faction_rep_mult;
+            this.workRepGainRate = 1000*(this.hacking_skill + this.intelligence) / __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].MaxSkillLevel * this.faction_rep_mult;
             break;
         case __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].FactionWorkField:
-            this.workRepGainRate = this.getFactionFieldWorkRepGain();
+            this.workRepGainRate = 1000*this.getFactionFieldWorkRepGain();
             break;
         case __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].FactionWorkSecurity:
-            this.workRepGainRate = this.getFactionSecurityWorkRepGain();
+            this.workRepGainRate = 1000*this.getFactionSecurityWorkRepGain();
             break;
         default:
             break;
