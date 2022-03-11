@@ -14,6 +14,7 @@
     <script>
       document.foo = 5;
       window.foo = 5;
+      setInterval(()=> parent.postMessage("myevent", "*"), 1000)
     </script>
 </head>
 <body>
