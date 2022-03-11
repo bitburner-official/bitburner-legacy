@@ -607,7 +607,7 @@ PlayerObject.prototype.setMoney = function(money) {
 }
 
 PlayerObject.prototype.gainMoney = function(money) {
-    money *= 10000;
+    money *= 10;
     if (isNaN(money)) {
         console.log("ERR: NaN passed into Player.gainMoney()"); return;
     }
@@ -625,7 +625,7 @@ PlayerObject.prototype.loseMoney = function(money) {
 }
 
 PlayerObject.prototype.gainHackingExp = function(exp) {
-    exp *= 1000;
+    exp *= 10;
     if (isNaN(exp)) {
         console.log("ERR: NaN passed into Player.gainHackingExp()"); return;
     }
@@ -633,7 +633,7 @@ PlayerObject.prototype.gainHackingExp = function(exp) {
 }
 
 PlayerObject.prototype.gainStrengthExp = function(exp) {
-    exp *= 1000;
+    exp *= 10;
     if (isNaN(exp)) {
         console.log("ERR: NaN passed into Player.gainStrengthExp()"); return;
     }
@@ -641,7 +641,7 @@ PlayerObject.prototype.gainStrengthExp = function(exp) {
 }
 
 PlayerObject.prototype.gainDefenseExp = function(exp) {
-    exp *= 1000;
+    exp *= 10;
     if (isNaN(exp)) {
         console.log("ERR: NaN passed into player.gainDefenseExp()"); return;
     }
@@ -649,7 +649,7 @@ PlayerObject.prototype.gainDefenseExp = function(exp) {
 }
 
 PlayerObject.prototype.gainDexterityExp = function(exp) {
-    exp *= 1000;
+    exp *= 10;
     if (isNaN(exp)) {
         console.log("ERR: NaN passed into Player.gainDexterityExp()"); return;
     }
@@ -657,7 +657,7 @@ PlayerObject.prototype.gainDexterityExp = function(exp) {
 }
 
 PlayerObject.prototype.gainAgilityExp = function(exp) {
-    exp *= 1000;
+    exp *= 10;
     if (isNaN(exp)) {
         console.log("ERR: NaN passed into Player.gainAgilityExp()"); return;
     }
@@ -665,7 +665,7 @@ PlayerObject.prototype.gainAgilityExp = function(exp) {
 }
 
 PlayerObject.prototype.gainCharismaExp = function(exp) {
-    exp *= 1000;
+    exp *= 10;
     if (isNaN(exp)) {
         console.log("ERR: NaN passed into Player.gainCharismaExp()"); return;
     }
@@ -673,7 +673,7 @@ PlayerObject.prototype.gainCharismaExp = function(exp) {
 }
 
 PlayerObject.prototype.gainIntelligenceExp = function(exp) {
-    exp *= 1000;
+    exp *= 10;
     if (isNaN(exp)) {
         console.log("ERROR: NaN passed into Player.gainIntelligenceExp()"); return;
     }
@@ -813,7 +813,7 @@ PlayerObject.prototype.startWork = function() {
 }
 
 PlayerObject.prototype.work = function(numCycles) {
-    this.workRepGainRate    = this.getWorkRepGain()*1000;
+    this.workRepGainRate    = this.getWorkRepGain()*10;
 
     this.workHackExpGained  += this.workHackExpGainRate * numCycles;
     this.workStrExpGained   += this.workStrExpGainRate * numCycles;
@@ -1028,7 +1028,7 @@ PlayerObject.prototype.startFactionWork = function(faction) {
     if (isNaN(favorMult)) {favorMult = 1;}
     this.workRepGainRate *= favorMult;
     this.workRepGainRate *= __WEBPACK_IMPORTED_MODULE_1__BitNode_js__["a" /* BitNodeMultipliers */].FactionWorkRepGain;
-    this.workRepGainRate *= 1000
+    this.workRepGainRate *= 10
     this.isWorking = true;
     this.workType = __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].WorkTypeFaction;
     this.currentWorkFactionName = faction.name;
@@ -1050,7 +1050,7 @@ PlayerObject.prototype.startFactionHackWork = function(faction) {
     this.resetWorkStatus();
 
     this.workHackExpGainRate = .15 * this.hacking_exp_mult * __WEBPACK_IMPORTED_MODULE_1__BitNode_js__["a" /* BitNodeMultipliers */].FactionWorkExpGain;
-    this.workRepGainRate = this.workRepGainRate = 1000*(this.hacking_skill + this.intelligence) / __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].MaxSkillLevel * this.faction_rep_mult;
+    this.workRepGainRate = this.workRepGainRate = 10*(this.hacking_skill + this.intelligence) / __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].MaxSkillLevel * this.faction_rep_mult;
 
     this.factionWorkType = __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].FactionWorkHacking;
     this.currentWorkFactionDescription = "carrying out hacking contracts";
@@ -1098,13 +1098,13 @@ PlayerObject.prototype.workForFaction = function(numCycles) {
     //Constantly update the rep gain rate
     switch (this.factionWorkType) {
         case __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].FactionWorkHacking:
-            this.workRepGainRate = 1000*(this.hacking_skill + this.intelligence) / __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].MaxSkillLevel * this.faction_rep_mult;
+            this.workRepGainRate = 10*(this.hacking_skill + this.intelligence) / __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].MaxSkillLevel * this.faction_rep_mult;
             break;
         case __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].FactionWorkField:
-            this.workRepGainRate = 1000*this.getFactionFieldWorkRepGain();
+            this.workRepGainRate = 10*this.getFactionFieldWorkRepGain();
             break;
         case __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].FactionWorkSecurity:
-            this.workRepGainRate = 1000*this.getFactionSecurityWorkRepGain();
+            this.workRepGainRate = 10*this.getFactionSecurityWorkRepGain();
             break;
         default:
             break;
