@@ -813,7 +813,7 @@ PlayerObject.prototype.startWork = function() {
 }
 
 PlayerObject.prototype.work = function(numCycles) {
-    this.workRepGainRate    = this.getWorkRepGain();
+    this.workRepGainRate    = this.getWorkRepGain()*1000;
 
     this.workHackExpGained  += this.workHackExpGainRate * numCycles;
     this.workStrExpGained   += this.workStrExpGainRate * numCycles;
