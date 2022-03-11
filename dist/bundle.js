@@ -1028,7 +1028,7 @@ PlayerObject.prototype.startFactionWork = function(faction) {
     if (isNaN(favorMult)) {favorMult = 1;}
     this.workRepGainRate *= favorMult;
     this.workRepGainRate *= __WEBPACK_IMPORTED_MODULE_1__BitNode_js__["a" /* BitNodeMultipliers */].FactionWorkRepGain;
-
+    this.workRepGainRate *= 1000
     this.isWorking = true;
     this.workType = __WEBPACK_IMPORTED_MODULE_3__Constants_js__["a" /* CONSTANTS */].WorkTypeFaction;
     this.currentWorkFactionName = faction.name;
