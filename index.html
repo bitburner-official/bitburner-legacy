@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bitburner</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/terminal.css" />
+	<link rel="stylesheet" type="text/css" href="css/menupages.css" />
+	<link rel="stylesheet" type="text/css" href="css/workinprogress.css" />
+    <link rel="stylesheet" type="text/css" href="css/popupboxes.css" />
+    <link rel="stylesheet" type="text/css" href="css/interactivetutorial.css" />
+    <link rel="stylesheet" type="text/css" href="css/loader.css" />
+    <link rel="stylesheet" type="text/css" href="css/missions.css" />
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-100157497-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</head>
+<body>
+    <div id="entire-game-container" style="visibility:hidden;">
+    <div id="mainmenu-container">
+        <!-- Main menu -->
+        <ul class="mainmenu">
+            <!-- Hacking dropdown -->
+            <li id="hacking-menu-header-li">
+                <a id="hacking-menu-header" class="mainmenu-accordion-header"> Hacking </a>
+            </li>
+            <li id="terminal-tab" class="mainmenu-accordion-panel">
+                <a id="terminal-menu-link"> Terminal </a>
+            </li>
+            <li id="create-script-tab" class="mainmenu-accordion-panel">
+                <a id="create-script-menu-link"> Create Script </a>
+            </li>
+            <li id="active-scripts-tab" class="mainmenu-accordion-panel">
+                <a id="active-scripts-menu-link"> Active Scripts </a>
+            </li>
+            <li id="create-program-tab" class="mainmenu-accordion-panel">
+                <a id="create-program-menu-link"> Create Program </a>
+                <span id="create-program-notification" class="notification-off"> </span>
+            </li>
+
+            <!-- Character dropdown -->
+            <li id="character-menu-header-li">
+                <a id="character-menu-header" class="mainmenu-accordion-header"> Character </a>
+            </li>
+            <li id="stats-tab" class="mainmenu-accordion-panel">
+                <a id="stats-menu-link"> Stats </a>
+            </li>
+            <li id="factions-tab" class="mainmenu-accordion-panel">
+                <a id="factions-menu-link"> Factions </a>
+            </li>
+            <li id="augmentations-tab" class="mainmenu-accordion-panel">
+                <a id="augmentations-menu-link" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> Augmentations </a>
+            </li>
+            <li id="hacknet-nodes-tab" class="mainmenu-accordion-panel">
+                <a id="hacknet-nodes-menu-link"> Hacknet Nodes </a>
+            </li>
+
+            <!-- World dropdown -->
+            <li id="world-menu-header-li">
+                <a id="world-menu-header" class="mainmenu-accordion-header">World</a>
+            </li>
+			<li id="city-tab" class="mainmenu-accordion-panel">
+                <a id="city-menu-link"> City </a>
+            </li>
+            <li id="travel-tab" class="mainmenu-accordion-panel">
+                <a id="travel-menu-link">Travel</a>
+            </li>
+            <li id="job-tab" class="mainmenu-accordion-panel">
+                <a id="job-menu-link">Job</a>
+            </li>
+
+            <li id="help-menu-header-li">
+                <a id="help-menu-header" class="mainmenu-accordion-header">Help</a>
+            </li>
+			<li id="tutorial-tab" class="mainmenu-accordion-panel">
+				<a id="tutorial-menu-link"> Tutorial </a>
+			</li>
+            <li id="options-tab" class="mainmenu-accordion-panel">
+                <a id="options-menu-link"> Options </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="script-editor-container" class="generic-menupage-container">
+        <div id="script-editor-wrapper">
+
+        <div id="script-editor-filename-wrapper">
+            <p id="script-editor-filename-tag"> <strong style="background-color:#555;">Script name: </strong></p>
+            <input id="script-editor-filename" type="text" maxlength="30" tabindex="1"> </input>
+        </div>
+
+        <div id="javascript-editor"></div>
+
+        <div id="script-editor-buttons-wrapper">
+            <span id="script-editor-save-and-close-button" class="a-link-button">Save & Close (Ctrl + b)</span>
+            <p id="script-editor-status-text"> </p>
+            <a id="script-editor-netscript-doc-button" class="a-link-button" href="https://bitburner.wikia.com/wiki/Netscript" target="_blank"> Netscript Documentation </a>
+        </div>
+        </div> <!-- End wrapper -->
+
+        <div id="script-editor-options-panel">
+            <h1 style="color:white;"> Script Editor Options </h1>
+            <fieldset>
+            <label for="script-editor-option-theme">Theme</label>
+            <select id="script-editor-option-theme">
+                <option value="Chaos">Chaos</option>
+                <option value="Chrome">Chrome</option>
+                <option value="Monokai">Monokai</option>
+                <option value="Solarized_Dark">Solarized Dark</option>
+                <option value="Solarized_Light">Solarized Light</option>
+                <option value="Terminal">Terminal</option>
+                <option value="Twilight">Twilight</option>
+                <option value="XCode">XCode</option>
+            </select>
+            </fieldset>
+
+            <fieldset>
+            <label for="script-editor-option-keybinding">Key Binding</label>
+            <select id="script-editor-option-keybinding">
+                <option value="ace">Ace</option>
+                <option value="vim">Vim</option>
+                <option value="emacs">Emacs</option>
+            </select>
+            </fieldset>
+
+            <fieldset>
+            <label for="script-editor-option-highlightactiveline">Highlight Active Line</label>
+            <input type="checkbox" name="script-editor-option-highlightactiveline" id="script-editor-option-highlightactiveline" checked>
+            </fieldset>
+
+            <fieldset>
+            <label for="script-editor-option-showinvisibles">Show Invisibles</label></td>
+            <input type="checkbox" name="script-editor-option-showinvisibles" id="script-editor-option-showinvisibles">
+            </fieldset>
+
+            <fieldset>
+            <label for="script-editor-option-usesofttab">Use Soft Tab</label></td>
+            <input type="checkbox" name="script-editor-option-usesofttab" id="script-editor-option-usesofttab" checked>
+            </fieldset>
+        </div> <!-- End script editor options panel -->
+	</div>
+
+	<!-- Terminal page -->
+    <div id="terminal-container">
+        <table id="terminal">
+           <tr id="terminal-input">
+                <td id="terminal-input-td" tabindex="2">$
+                    <input type="text" id="terminal-input-text-box" class="terminal-input" tabindex="1"
+                           onfocus="this.value = this.value;"/>
+                </td>
+           </tr>
+        </table>
+    </div>
+
+	<!-- Character Info page -->
+    <div id="character-container" class="generic-menupage-container">
+        <div id="character-content">
+            <p id="character-info"> </p>
+        </div>
+    </div>
+
+	<!-- Active scripts info page -->
+	<div id="active-scripts-container" class="generic-menupage-container">
+        <p id="active-scripts-text"> This page displays a list of all of your scripts that are currently running across every machine. It also
+        provides information about each script's production. The scripts are categorized by the hostname of the servers on which
+        they are running. </p>
+        <p id="active-scripts-total-prod"> Total online production rate: </p>
+		<ul class="active-scripts-list" id="active-scripts-list" style="list-style: none;">
+		</ul>
+	</div>
+
+    <!-- Hacknet Nodes -->
+    <div id="hacknet-nodes-container" class="generic-menupage-container">
+        <h1 id="hacknet-nodes-title"> Hacknet Nodes </h1>
+        <p id="hacknet-nodes-text">
+        The Hacknet is a global, decentralized network of machines. It is used by hackers all around
+        the world to anonymously share computing power and perform distributed cyberattacks without the
+        fear of being traced.
+        <br><br>
+        Here, you can purchase a Hacknet Node, a specialized machine that can connect and contribute its
+        resources to the Hacknet network. This allows you to take a small percentage of profits
+        from hacks performed on the network. Essentially, you are renting out your Node's computing power.
+        <br><br>
+        Each Hacknet Node you purchase will passively earn you money. Each Hacknet Node can be upgraded
+        in order to increase its computing power and thereby increase the profit you earn from it.
+        </p>
+        <a id="hacknet-nodes-purchase-button" class="a-link-button"> Purchase Hacknet Node </a>
+        <br>
+        <div id="hacknet-nodes-money-multipliers-div">"
+            <p id="hacknet-nodes-money"> </p>
+            <span id="hacknet-nodes-multipliers">
+                <a id="hacknet-nodes-1x-multiplier" class="a-link-button-inactive"> x1 </a>
+                <a id="hacknet-nodes-5x-multiplier" class="a-link-button"> x5 </a>
+                <a id="hacknet-nodes-10x-multiplier" class="a-link-button"> x10 </a>
+                <a id="hacknet-nodes-max-multiplier" class="a-link-button"> MAX </a>
+            </span>
+        </div>
+        <ul id="hacknet-nodes-list" style="list-style : none;">
+        </ul>
+    </div>
+
+    <!-- World -->
+	<div id="world-container" class="generic-menupage-container">
+        <h2 id="world-city-name"> </h2>
+        <p id="world-city-desc"> </p>
+		<ul id="aevum-locations-list">
+			<li id="aevum-travelagency-li">
+                <a id="aevum-travelagency" class="a-link-button"> Travel Agency </a>
+            </li>
+            <li id="aevum-hospital-li">
+                <a id="aevum-hospital" class="a-link-button">Hospital</a>
+            </li>
+            <li id="aevum-summituniversity-li">
+                <a id="aevum-summituniversity" class="a-link-button"> Summit University </a>
+            </li>
+			<li id="aevum-ecorp-li">
+				<a id="aevum-ecorp" class="a-link-button"> ECorp </a>
+			</li>
+			<li id="aevum-bachmanandassociates-li">
+				<a id="aevum-bachmanandassociates" class="a-link-button"> Bachman & Associates</a>
+			</li>
+			<li id="aevum-clarkeincorporated-li">
+				<a id="aevum-clarkeincorporated" class="a-link-button"> Clarke Incorporated </a>
+			</li>
+			<li id="aevum-fulcrumtechnologies-li">
+				<a id="aevum-fulcrumtechnologies" class="a-link-button"> Fulcrum Technologies </a>
+			</li>
+			<li id="aevum-aerocorp-li">
+				<a id="aevum-aerocorp" class="a-link-button"> AeroCorp </a>
+			</li>
+			<li id="aevum-galacticcybersystems-li">
+				<a id="aevum-galacticcybersystems" class="a-link-button"> Galactic Cybersystems </a>
+			</li>
+			<li id="aevum-watchdogsecurity-li">
+				<a id="aevum-watchdogsecurity" class="a-link-button">Watchdog Security </a>
+			</li>
+			<li id="aevum-rhoconstruction-li">
+				<a id="aevum-rhoconstruction" class="a-link-button">Rho Construction </a>
+			</li>
+			<li id="aevum-aevumpolice-li">
+				<a id="aevum-aevumpolice" class="a-link-button">Aevum Police</a>
+			</li>
+			<li id="aevum-netlinktechnologies-li">
+				<a id="aevum-netlinktechnologies" class="a-link-button">NetLink Technologies</a>
+			</li>
+			<li id="aevum-crushfitnessgym-li">
+				<a id="aevum-crushfitnessgym" class="a-link-button">Crush Fitness Gym </a>
+			</li>
+			<li id="aevum-snapfitnessgym-li">
+				<a id="aevum-snapfitnessgym" class="a-link-button">Snap Fitness Gym</a>
+			</li>
+            <li id="aevum-slums-li">
+                <a id="aevum-slums" class="a-link-button">The Slums</a>
+            </li>
+		</ul>
+
+		<ul id="chongqing-locations-list">
+			<li id="chongqing-travelagency-li">
+				<a id="chongqing-travelagency" class="a-link-button"> Travel Agency </a>
+			</li>
+            <li id="chongqing-hospital-li">
+                <a id="chongqing-hospital" class="a-link-button">Hospital</a>
+            </li>
+			<li id="chonqging-kuaigonginternational-li">
+				<a id="chongqing-kuaigonginternational" class="a-link-button">KuaiGong International </a>
+			</li>
+			<li id="chongqing-solarisspacesystems-li">
+				<a id="chongqing-solarisspacesystems" class="a-link-button">Solaris Space Systems</a>
+			</li>
+            <li id="chongqing-slums-li">
+                <a id="chongqing-slums" class="a-link-button">The Slums</a>
+            </li>
+		</ul>
+
+		<ul id="sector12-locations-list">
+			<li id="sector12-travelagency-li">
+				<a id="sector12-travelagency" class="a-link-button">Travel Agency </a>
+			</li>
+            <li id="sector12-hospital-li">
+                <a id="sector12-hospital" class="a-link-button">Hospital</a>
+            </li>
+            <li id="sector12-rothmanuniversity-li">
+                <a id="sector12-rothmanuniversity" class="a-link-button"> Rothman University</a>
+            </li>
+			<li id="sector12-megacorp-li">
+				<a id="sector12-megacorp" class="a-link-button">MegaCorp</a>
+			</li>
+			<li id="sector12-bladeindustries-li">
+				<a id="sector12-bladeindustries" class="a-link-button"> Blade Industries</a>
+			</li>
+			<li id="sector12-foursigma-li">
+				<a id="sector12-foursigma" class="a-link-button">Four Sigma</a>
+			</li>
+			<li id="sector12-icarusmicrosystems-li">
+				<a id="sector12-icarusmicrosystems" class="a-link-button"> Icarus Microsystems</a>
+			</li>
+			<li id="sector12-universalenergy-li">
+				<a id="sector12-universalenergy" class="a-link-button">Universal Energy </a>
+			</li>
+			<li id="sector12-deltaone-li">
+				<a id="sector12-deltaone" class="a-link-button">DeltaOne </a>
+			</li>
+			<li id="sector12-cia-li">
+				<a id="sector12-cia" class="a-link-button">Central Intelligence Agency </a>
+			</li>
+			<li id="sector12-nsa-li">
+				<a id="sector12-nsa" class="a-link-button">National Security Agency </a>
+			</li>
+			<li id="sector12-alphaenterprises-li">
+				<a id="sector12-alphaenterprises" class="a-link-button">Alpha Enterprises</a>
+			</li>
+			<li id="sector12-carmichaelsecurity-li">
+				<a id="sector12-carmichaelsecurity" class="a-link-button"> Carmichael Security</a>
+			</li>
+			<li id="sector12-foodnstuff-li">
+				<a id="sector12-foodnstuff" class="a-link-button">FoodNStuff</a>
+			</li>
+			<li id="sector12-joesguns-li">
+				<a id="sector12-joesguns" class="a-link-button"> Joe's Guns</a>
+			</li>
+			<li id="sector12-irongym-li">
+				<a id="sector12-irongym" class="a-link-button">Iron Gym </a>
+			</li>
+			<li id="sector12-powerhousegym-li">
+				<a id="sector12-powerhousegym" class="a-link-button">Powerhouse Gym</a>
+			</li>
+            <li id="sector12-slums-li">
+                <a id="sector12-slums" class="a-link-button">The Slums</a>
+            </li>
+		</ul>
+
+		<ul id="newtokyo-locations-list">
+			<li id="newtokyo-travelagency-li">
+				<a id="newtokyo-travelagency" class="a-link-button"> Travel Agency</a>
+			</li>
+            <li id="newtokyo-hospital-li">
+                <a id="newtokyo-hospital" class="a-link-button">Hospital</a>
+            </li>
+			<li id="newtokyo-defcomm-li">
+				<a id="newtokyo-defcomm" class="a-link-button"> DefComm</a>
+			</li>
+			<li id="newtokyo-vitalife-li">
+				<a id="newtokyo-vitalife" class="a-link-button">VitaLife </a>
+			</li>
+			<li id="newtokyo-globalpharmaceuticals-li">
+				<a id="newtokyo-globalpharmaceuticals" class="a-link-button">Global Pharmaceuticals</a>
+			</li>
+			<li id="newtokyo-noodlebar-li">
+				<a id="newtokyo-noodlebar" class="a-link-button">Noodle Bar </a>
+			</li>
+            <li id="newtokyo-slums-li">
+                <a id="newtokyo-slums" class="a-link-button">The Slums</a>
+            </li>
+		</ul>
+
+		<ul id="ishima-locations-list">
+			<li id="ishima-travelagency-li">
+				<a id="ishima-travelagency" class="a-link-button">Travel Agency </a>
+			</li>
+            <li id="ishima-hospital-li">
+                <a id="ishima-hospital" class="a-link-button">Hospital</a>
+            </li>
+			<li id="ishima-stormtechnologies-li">
+				<a id="ishima-stormtechnologies" class="a-link-button">Storm Technologies</a>
+			</li>
+			<li id="ishima-novamedical-li">
+				<a id="ishima-novamedical" class="a-link-button">Nova Medical</a>
+			</li>
+			<li id="ishima-omegasoftware-li">
+				<a id="ishima-omegasoftware" class="a-link-button">Omega Software </a>
+			</li>
+            <li id="ishima-slums-li">
+                <a id="ishima-slums" class="a-link-button">The Slums</a>
+            </li>
+		</ul>
+
+		<ul id="volhaven-locations-list">
+			<li id="volhaven-travelagency-li">
+				<a id="volhaven-travelagency" class="a-link-button">Travel Agency </a>
+			</li>
+            <li id="volhaven-hospital-li">
+                <a id="volhaven-hospital" class="a-link-button">Hospital</a>
+            </li>
+            <li id="volhaven-zbinstituteoftechnology-li">
+                <a id="volhaven-zbinstituteoftechnology" class="a-link-button">ZB Insitute of Technology</a>
+            </li>
+			<li id="volhaven-omnitekincorporated-li">
+				<a id="volhaven-omnitekincorporated" class="a-link-button">OmniTek Incorporated </a>
+			</li>
+			<li id="volhaven-nwo-li">
+				<a id="volhaven-nwo" class="a-link-button">NWO</a>
+			</li>
+			<li id="volhaven-helislabs-li">
+				<a id="volhaven-helioslabs" class="a-link-button">Helios Labs</a>
+			</li>
+			<li id="volhaven-omniacybersystems-li">
+				<a id="volhaven-omniacybersystems" class="a-link-button">Omnia Cybersystems</a>
+			</li>
+			<li id="volhaven-lexocorp-li">
+				<a id="volhaven-lexocorp" class="a-link-button">LexoCorp</a>
+			</li>
+			<li id="volhaven-syscoresecurities-li">
+				<a id="volhaven-syscoresecurities" class="a-link-button">SysCore Securities</a>
+			</li>
+			<li id="volhaven-computek-li">
+				<a id="volhaven-computek" class="a-link-button">CompuTek</a>
+			</li>
+			<li id="volhaven-milleniumfitnessgym-li">
+				<a id="volhaven-milleniumfitnessgym" class="a-link-button">Millenium Fitness Gym</a>
+			</li>
+            <li id="volhaven-slums-li">
+                <a id="volhaven-slums" class="a-link-button">The Slums</a>
+            </li>
+		</ul>
+
+        <ul id="generic-locations-list">
+			<li id="generic-location-wse-li">
+				<a id="generic-location-wse" class="a-link-button">World Stock Exchange</a>
+			</li>
+		</ul>
+	</div>
+
+	<!-- Create a program(executable) -->
+	<div id="create-program-container" class="generic-menupage-container">
+        <p id="create-program-page-text">
+            This page displays any programs that you are able to create. Writing the code for a program takes time, which
+            can vary based on how complex the program is. If you are working on creating on a program you can cancel
+            at any time. Your progress will be saved and you can continue later.
+        </p>
+
+        <ul id="create-program-list">
+            <a class="a-link-button tooltip" id="create-program-nuke">
+                NUKE.exe
+                <span class="tooltiptext"> This virus is used to gain root access to a machine if enough ports are opened. </span>
+            </a>
+            <a class="a-link-button tooltip" id="create-program-brutessh">
+                BruteSSH.exe
+                <span class="tooltiptext"> This program executes a brute force attack that opens SSH ports </span>
+            </a>
+            <a class="a-link-button tooltip" id="create-program-ftpcrack">
+                FTPCrack.exe
+                <span class="tooltiptext"> This program cracks open FTP ports</span>
+            </a>
+            <a class="a-link-button tooltip" id="create-program-relaysmtp">
+                relaySMTP.exe
+                <span class="tooltiptext"> This program opens SMTP ports by redirecting data </span>
+            </a>
+            <a class="a-link-button tooltip" id="create-program-httpworm">
+                HTTPWorm.exe
+                <span class="tooltiptext"> This virus opens up HTTP ports </span>
+            </a>
+            <a class="a-link-button tooltip" id="create-program-sqlinject">
+                SQLInject.exe
+                <span class="tooltiptext"> This virus opens SQL ports</span>
+            </a>
+            <a class="a-link-button tooltip" id="create-program-deepscanv1">
+                DeepscanV1.exe
+                <span class="tooltiptext"> This program allows you to use the scan-analyze command with a depth up to 5</span>
+            </a>
+            <a class="a-link-button tooltip" id="create-program-deepscanv2">
+                DeepscanV2.exe
+                <span class="tooltiptext"> This program allows you to use the scan-analyze command with a depth up to 10</span>
+            </a>
+            <a class="a-link-button tooltip" id="create-program-serverprofiler">
+                ServerProfiler.exe
+                <span class="tooltiptext">This program is used to display hacking and Netscript-related information about servers</span>
+            </a>
+            <a class="a-link-button tooltip" id="create-program-autolink">
+                AutoLink.exe
+                <span class="tooltiptext">This program allows you to directly connect to other servers through the 'scan-analyze' command</span>
+            </a>
+        </ul>
+	</div>
+
+	<!-- Factions -->
+	<div id="factions-container" class="generic-menupage-container">
+		<h1> Factions </h1>
+		<p> Lists all factions you have joined </p>
+		<ul class="factions-list" id="factions-list"></ul>
+        <br><br>
+        <h1> Outstanding Faction Invitations </h1>
+        <p style="width:70%;"> Lists factions you have been invited to, as well as factions you have previously rejected.
+            You can accept these faction invitations at any times </p>
+        <ul class="factions-list" id="outstanding-faction-invitations-list"></ul>
+	</div>
+
+	<!-- Single Faction info (when you select a faction from the Factions menu) -->
+	<div id="faction-container" class="generic-menupage-container">
+		<h1 id="faction-name"></h1>
+		<pre id="faction-info"></pre>
+		<p> --------------- </p>
+		<p id="faction-reputation" class="tooltip"></p>
+        <p> --------------- </p>
+        <p id="faction-favor" class="tooltip"></p>
+		<p> --------------- </p>
+		<p id="faction-work-description-text">
+		Perform work/carry out assignments for your faction to help further its cause! By doing so
+        you will earn reputation for your faction. You will also gain reputation passively over time,
+        although at a very slow rate. Earning reputation will allow you to purchase Augmentations
+        through this faction, which are powerful upgrades that enhance your abilities. Note that you cannot
+		use your terminal or create scripts when you are performing a task! <br><br><br><br>
+		</p>
+
+        <div id="faction-hack-mission-div" class="faction-work-div">
+            <div id="faction-hack-mission-div-wrapper" class="faction-work-div-wrapper">
+                <a id="faction-hack-mission-button" class="a-link-button">Hacking Mission</a>
+                <p id="faction-hack-mission-text">
+                    Attempt a hacking mission for your faction.
+                    A mission is a mini game that, if won, earns you significant reputation with this faction. (Recommended hacking level: 200+)
+                </p>
+            </div>
+            <div class="faction-clear"></div>
+		</div>
+
+		<div id="faction-hack-div" class="faction-work-div">
+            <div id="faction-hack-div-wrapper" class="faction-work-div-wrapper">
+                <a id="faction-hack-button" class="a-link-button">Hacking Contracts</a>
+                <p id="faction-hack-text">
+                    Complete hacking contracts for your faction.
+                    Your effectiveness, which determines how much reputation you gain for this faction, is based on your hacking skill.
+                    You will gain hacking exp.
+                </p>
+            </div>
+            <div class="faction-clear"></div>
+		</div>
+
+		<div id="faction-fieldwork-div" class="faction-work-div">
+            <div id="faction-fieldwork-div-wrapper" class="faction-work-div-wrapper">
+                <a id="faction-fieldwork-button" class="a-link-button">Field Work</a>
+                <p id="faction-fieldwork-text">
+                    Carry out field missions for your faction.
+                    Your effectiveness, which determines how much reputation you gain for this faction, is based on all of your stats.
+                    You will gain exp for all stats.
+                </p>
+            </div>
+            <div class="faction-clear"></div>
+		</div>
+
+		<div id="faction-securitywork-div" class="faction-work-div">
+            <div id="faction-securitywork-div-wrapper" class="faction-work-div-wrapper">
+                <a id="faction-securitywork-button" class="a-link-button">Security Work</a>
+                <p id="faction-securitywork-text">
+                    Serve in a security detail for your faction.
+                    Your effectiveness, which determines how much reputation you gain for this faction, is based on your combat stats.
+                    You will gain exp for all combat stats.
+                </p>
+            </div>
+            <div class="faction-clear"></div>
+		</div>
+
+        <div id="faction-donate-div" class="faction-work-div">
+            <div id="faction-donate-div-wrapper" class="faction-work-div-wrapper">
+                <a id="faction-donate-button" class="a-link-button">Donate Money</a>
+                <p id="faction-donate-text">
+                    Donate money to your faction. You will gain reputation based on how much money you donate
+                </p>
+                <div>
+                    <label id="faction-donate-amount-txt">Enter amount to donate: $</label>
+                    <input id="faction-donate-input" type="number"> </input>
+                </div>
+                <p id="faction-donate-rep-gain"> This donation will result in 0 reputation gain</p>
+
+            </div>
+            <div class="faction-clear"></div>
+		</div>
+
+        <p>
+            <br>
+            As your reputation with this faction rises, you will unlock Augmentations, which you
+            can purchase to enhance your abilities.
+            <br><br>
+        </p>
+        <a id="faction-purchase-augmentations" class="a-link-button">Purchase Augmentations</a>
+        <br><br><br><br>
+	</div>
+
+    <div id="faction-augmentations-container" class="generic-menupage-container">
+        <a id="faction-augmentations-back-button" class="a-link-button"> Back </a>
+		<h1> Faction Augmentations </h1>
+		<p id="faction-augmentations-page-desc"> Lists all augmentations that are available to purchase from </p>
+
+		<ul class="faction-augmentations-list" id="faction-augmentations-list">
+		</ul>
+    </div>
+
+	<!-- Augmentations -->
+	<div id="augmentations-container" class="generic-menupage-container">
+        <h1> Purchased Augmentations </h1>
+        <p style="width:70%;">
+        Below is a list of all Augmentations you have purchased but not yet installed. Click the button below to install them.
+        <br>WARNING: Installing your Augmentations resets most of your progress, including: <br><br>
+                Stats/Skill levels and Experience <br>
+                Money <br>
+                Scripts on every computer but your home computer<br>
+                Purchased servers <br>
+                Hacknet Nodes <br>
+                Faction/Company reputation <br>
+                Stocks<br><br>
+                Installing Augmentations lets you start over with the perks and benefits granted by all
+                of the Augmentations you have ever installed. Also, you will keep any scripts and RAM/Core upgrades
+                on your home computer (but you will lose all programs besides NUKE.exe).
+        </p>
+        <br><br>
+        <ul id="queued-augmentations-list"></ul>
+        <br>
+        <a id="install-augmentations-button" class="a-link-button"> Install Augmentations </a>
+        <br><br>
+        <h1> Installed Augmentations </h1>
+        <p style="width:70%;"> List of all augmentations (including Source Files) that have been installed. You have gained the effects of these augmentations </p>
+        <ul id="augmentations-list">
+        </ul>
+	</div>
+
+	<!-- Tutorial content -->
+	<div id="tutorial-container" class="generic-menupage-container">
+        <a id="tutorial-getting-started-link" class="a-link-button"
+           href="http://bitburner.wikia.com/wiki/Chapt3rs_Guide_to_Getting_Started_with_Bitburner" target="_blank"> Getting Started </a>
+        <a id="tutorial-networking-link" class="a-link-button"> Servers & Networking </a>
+        <a id="tutorial-hacking-link" class="a-link-button"> Hacking </a>
+        <a id="tutorial-scripts-link" class="a-link-button"> Scripts </a>
+        <a id="tutorial-netscript-link" class="a-link-button"> Netscript Programming Language </a>
+        <a id="tutorial-traveling-link" class="a-link-button"> Traveling </a>
+        <a id="tutorial-jobs-link" class="a-link-button"> Companies and Infiltration </a>
+        <a id="tutorial-factions-link" class="a-link-button"> Factions </a>
+        <a id="tutorial-augmentations-link" class="a-link-button"> Augmentations </a>
+        <a id="tutorial-shortcuts-link" class="a-link-button"
+            href="https://bitburner.wikia.com/wiki/Shortcuts" target="_blank"> Keyboard Shortcuts </a>
+
+        <a id="tutorial-back-button" class="a-link-button"> Back </a>
+        <p id="tutorial-text"> </p>
+	</div>
+
+    <!-- Location (visiting a location in World) -->
+    <div id="location-container" class="generic-menupage-container">
+        <a id="location-return-to-world-button" class="a-link-button"> Return to World </a>
+        <h1 id="location-name"></h1>
+        <p id="location-info"> </p>
+
+        <p id="location-job-title"> </p>
+        <p id="location-text-divider-1"> --------------- </p>
+        <p id="location-job-reputation" class="tooltip"> </p>
+        <p id="location-text-divider-2"> --------------- </p>
+        <p id="location-company-favor" class="tooltip"> </p>
+        <p id="location-text-divider-3"> --------------- </p>
+
+        <!-- Jobs/Work at a company -->
+        <a id="location-software-job" class="a-link-button tooltip"> Apply for Software Job</a>
+        <a id="location-software-consultant-job" class="a-link-button tooltip"> Apply for Software Consultant Job</a>
+        <a id="location-it-job" class="a-link-button tooltip"> Apply for IT Job </a>
+        <a id="location-security-engineer-job" class="a-link-button tooltip"> Apply for Security Engineer Job</a>
+        <a id="location-network-engineer-job" class="a-link-button tooltip"> Apply for Network Engineer Job</a>
+        <a id="location-business-job" class="a-link-button tooltip"> Apply for Business Job</a>
+        <a id="location-business-consultant-job" class="a-link-button tooltip"> Apply for Business Consultant Job </a>
+        <a id="location-security-job" class="a-link-button tooltip"> Apply for Security Job</a>
+        <a id="location-agent-job" class="a-link-button tooltip"> Apply to be an Agent</a>
+        <a id="location-employee-job" class="a-link-button tooltip"> Apply to be an Employee </a>
+        <a id="location-parttime-employee-job" class="a-link-button tooltip"> Apply to be a Part-time Employee </a>
+        <a id="location-waiter-job" class="a-link-button tooltip"> Apply to be a Waiter</a>
+        <a id="location-parttime-waiter-job" class="a-link-button tooltip"> Apply to be a Part-time Waiter</a>
+
+        <a id="location-work" class="a-link-button"> Work </a>
+
+        <!-- Gym -->
+        <a id="location-gym-train-str" class="a-link-button">Train Strength</a>
+        <a id="location-gym-train-def" class="a-link-button">Train Defense </a>
+        <a id="location-gym-train-dex" class="a-link-button">Train Dexterity</a>
+        <a id="location-gym-train-agi" class="a-link-button">Train Agility</a>
+
+        <!-- Study/Take classes at a university -->
+        <a id="location-study-computer-science" class="a-link-button">Study Computer Science (free)</a>
+        <a id="location-data-structures-class" class="a-link-button">Take Data Structures course</a>
+        <a id="location-networks-class" class="a-link-button">Take Networks course</a>
+        <a id="location-algorithms-class" class="a-link-button">Take Algorithms course</a>
+        <a id="location-management-class" class="a-link-button">Take Management course</a>
+        <a id="location-leadership-class" class="a-link-button">Take Leadership course</a>
+
+        <!-- Purchase servers -->
+        <a id="location-purchase-2gb" class="a-link-button"> Purchase 2GB Server - $150,000</a>
+        <a id="location-purchase-4gb" class="a-link-button"> Purchase 4GB Server - $300,000</a>
+        <a id="location-purchase-8gb" class="a-link-button"> Purchase 8GB Server - $600,000</a>
+        <a id="location-purchase-16gb" class="a-link-button"> Purchase 16GB Server - $1,200,000</a>
+        <a id="location-purchase-32gb" class="a-link-button"> Purchase 32GB Server - $2,400,000</a>
+        <a id="location-purchase-64gb" class="a-link-button"> Purchase 64GB Server - $4,800,000</a>
+        <a id="location-purchase-128gb" class="a-link-button"> Purchase 128GB Server - $9,600,000</a>
+        <a id="location-purchase-256gb" class="a-link-button"> Purchase 256GB Server - $19,200,000</a>
+        <a id="location-purchase-512gb" class="a-link-button"> Purchase 512GB Server - $38,400,000</a>
+        <a id="location-purchase-1tb" class="a-link-button"> Purchase 1TB Server - $75,000,000</a>
+        <a id="location-purchase-tor" class="a-link-button"> Purchase TOR Router - $100,000</a>
+        <a id="location-purchase-home-ram" class="a-link-button"> Purchase additional RAM for Home computer </a>
+        <a id="location-purchase-home-cores" class="a-link-button"> Purchase additional Core for Home computer </a>
+
+        <!-- Infiltrate -->
+        <a id="location-infiltrate" class="a-link-button tooltip"> Infiltrate Company
+            <span class="tooltiptext">
+                Infiltrate this company's facility to try and steal their classified secrets!
+                Warning: You may end up hospitalized if you are unsuccessful!
+            </span>
+        </a>
+
+        <!-- Hospital -->
+        <a id="location-hospital-treatment" class="a-link-button"> Get Treatment for Wounds </a>
+
+        <!-- Travel agency -->
+        <p id="location-travel-agency-text">
+            From here, you can travel to any other city! A ticket costs $200,000.
+        </p>
+        <a id="location-travel-to-aevum" class="a-link-button"> Travel to Aevum </a>
+        <a id="location-travel-to-chongqing" class="a-link-button"> Travel to Chongqing</a>
+        <a id="location-travel-to-sector12" class="a-link-button"> Travel to Sector-12</a>
+        <a id="location-travel-to-newtokyo" class="a-link-button"> Travel to New Tokyo</a>
+        <a id="location-travel-to-ishima" class="a-link-button"> Travel to Ishima</a>
+        <a id="location-travel-to-volhaven" class="a-link-button"> Travel to Volhaven</a>
+
+        <!-- Slums -->
+        <p id="location-slums-description">
+            You have entered the Slums, a poverty-ridden district filled with gangs, criminals, and
+            other shadowy entities. The city's government and police have neglected this area for years... <br><br><br>
+
+            In the Slums you can commit crimes to earn money and experience. Crime attempts are not always
+            successful. Your chance at successfully committing a crime is determined by your stats.
+        </p>
+        <a class="a-link-button tooltip" id="location-slums-shoplift"> Shoplift </a>
+        <a id="location-slums-rob-store" class="a-link-button tooltip"> Rob a store </a>
+        <a id="location-slums-mug" class="a-link-button tooltip"> Mug someone </a>
+        <a id="location-slums-larceny" class="a-link-button tooltip"> Commit Larceny </a>
+        <a id="location-slums-deal-drugs" class="a-link-button tooltip"> Deal Drugs </a>
+        <a id="location-slums-traffic-arms" class="a-link-button tooltip"> Traffick Illegal Arms </a>
+        <a id="location-slums-homicide" class="a-link-button tooltip"> Homicide </a>
+        <a id="location-slums-gta" class="a-link-button tooltip"> Grand Theft Auto </a>
+        <a id="location-slums-kidnap" class="a-link-button tooltip"> Kidnap and Ransom </a>
+        <a id="location-slums-assassinate" class="a-link-button tooltip"> Assassinate </a>
+        <a id="location-slums-heist" class="a-link-button tooltip"> Heist </a>
+    </div>
+
+    <div id="infiltration-container" class="generic-menupage-container">
+        <div id="infiltration-left-panel">
+            <p id="infiltration-level-text"> </p>
+            <div id="infiltration-buttons">
+                <a class="a-link-button tooltip" id="infiltration-kill"> </a>
+                <a class="a-link-button tooltip" id="infiltration-knockout"> </a>
+                <a class="a-link-button tooltip" id="infiltration-stealthknockout"> </a>
+                <a class="a-link-button tooltip" id="infiltration-assassinate"> </a>
+                <a class="a-link-button tooltip" id="infiltration-hacksecurity"> </a>
+                <a class="a-link-button tooltip" id="infiltration-destroysecurity"> </a>
+                <a class="a-link-button tooltip" id="infiltration-sneak"> </a>
+                <a class="a-link-button tooltip" id="infiltration-pickdoor"> </a>
+                <a class="a-link-button tooltip" id="infiltration-bribe"> </a>
+                <a class="a-link-button tooltip" id="infiltration-escape"> </a>
+            </div>
+        </div>
+        <div id="infiltration-right-panel">
+            <p id="infiltration-status-text"></p>
+        </div>
+    </div>
+
+    <div id="stock-market-container" class="generic-menupage-container">
+        <p>
+            Welcome to the World Stock Exchange (WSE)! <br><br>
+
+            To begin trading, you must first purchase an account. WSE accounts will persist
+            after you 'reset' by installing Augmentations.
+        </p>
+        <a id="stock-market-buy-account" class="a-link-button-inactive"> Buy WSE Account </a>
+        <p>
+            You can also purchase access to the World Stock Exchange's TIX API! TIX, short for
+            Trade Information eXchange, is the communications protocol supported by the WSE.
+            <br><br>
+            Gaining access to the TIX API lets you write code to build automated trading
+            systems. In other words, you can create your own algorithmic trading strategies!
+            <br><br>
+            If you purchase access to the TIX API, you will retain that access even after
+            you 'reset' by installing Augmentations.
+        </p>
+        <a id="stock-market-buy-tix-api" class="a-link-button-inactive">
+            Buy Trade Information eXchange (TIX) API Access - COMING SOON
+        </a>
+        <p id="stock-market-commission"> </p>
+
+        <ul id="stock-market-list" style="list-style:none;">
+		</ul>
+    </div>
+
+    <!-- Log Box -->
+    <div id="log-box-container">
+        <div id="log-box-content">
+            <span id="log-box-close"> &times; </span>
+            <p id="log-box-text-header"> </p>
+            <p id="log-box-text"> </p>
+        </div>
+    </div>
+
+    <!-- Generic Yes/No Pop Up box -->
+    <div id="yes-no-box-container" class="popup-box-container">
+        <div id="yes-no-box-content" class="popup-box-content">
+            <p id="yes-no-box-text"> </p>
+            <span id="yes-no-box-yes" class="popup-box-button"> Yes </span>
+            <span id="yes-no-box-no" class="popup-box-button"> No </span>
+        </div>
+    </div>
+
+    <!-- Generic yes/no pop up box with text entry field -->
+    <div id="yes-no-text-input-box-container" class="popup-box-container">
+        <div id="yes-no-text-input-box-content" class="popup-box-content">
+            <p id="yes-no-text-input-box-text"> </p>
+            <input type="text" id="yes-no-text-input-box-input" pattern="[a-zA-Z0-9-_]" maxlength="30"> </input>
+            <span id="yes-no-text-input-box-yes" class="popup-box-button"> Yes </span>
+            <span id="yes-no-text-input-box-no" class="popup-box-button"> No </span>
+        </div>
+    </div>
+
+    <!-- Faction Invitation Pop-up Box -->
+    <div id="faction-invitation-box-container" class="popup-box-container">
+        <div id="faction-invitation-box-content" class="popup-box-content">
+            <p id="faction-invitation-box-text"> </p>
+            <p id="faction-invitation-box-message"> </p>
+            <p id="faction-invitation-box-warning">
+                Would you like to join? <br> <br>
+                Warning: Joining this faction may prevent you from joining other factions during this run!
+            </p>
+            <span id="faction-invitation-box-yes" class="popup-box-button"> Yes </span>
+            <span id="faction-invitation-box-no" class="popup-box-button"> No </span>
+        </div>
+    </div>
+
+    <!-- End of Infiltration pop up box -->
+    <div id="infiltration-box-container" class="popup-box-container">
+        <div id="infiltration-box-content" class="popup-box-content">
+            <p id="infiltration-box-text"> </p>
+
+            <span id="infiltration-box-sell" class="a-link-button"> Sell on Black Market </span> <br><br>
+            <select id="infiltration-faction-select"> </select> <br>
+            <span id="infiltration-box-faction" class="a-link-button"> Give to Faction for Reputation </span>
+
+        </div>
+    </div>
+
+    <!-- Mission container -->
+    <div id="mission-container" class="generic-fullscreen-container">
+    </div>
+
+    <!-- Work in progress screen -->
+    <div id="work-in-progress-container" class="generic-fullscreen-container">
+        <p id="work-in-progress-text"> </p>
+
+        <span id="work-in-progress-cancel-button"> Cancel Work </span>
+    </div>
+
+    <!-- Red Pill Container -->
+    <div id="red-pill-container" class="generic-fullscreen-container">
+    </div>
+
+    <!-- Interactive Tutorial Text Screen -->
+    <div id="interactive-tutorial-wrapper">
+    <div id="interactive-tutorial-container">
+        <p id="interactive-tutorial-text"> </p>
+        <span id="interactive-tutorial-exit"> Exit Tutorial </span>
+        <span id="interactive-tutorial-next"> Next </span>
+        <span id="interactive-tutorial-back"> Back </span>
+    </div>
+    </div>
+
+    <!-- Character Overview Screen -->
+    <div id="character-overview-wrapper">
+    <div id="character-overview-container">
+        <p id="character-overview-text">  </p>
+        <span id="character-overview-save-button"> Save Game </span>
+        <span id="character-overview-options-button"> Options </span>
+    </div>
+    </div>
+
+    <!-- Status text -->
+    <div id="status-text-container">
+        <p id="status-text"> </p>
+    </div>
+
+    <!-- Game Options -->
+    <div id="game-options-container" class="popup-box-container">
+        <div id="game-options-content" class="game-options-box">
+            <span id="game-options-close-button">&times;</span>
+            <h1> Game Options </h1>
+            <br>
+            <div id="game-options-left-panel">
+                <!-- Netscript execution time -->
+                <fieldset>
+                    <label for="settingsNSExecTimeRangeVal" class="tooltip">Netscript exec time:
+                        <span class="tooltiptext">
+                            The minimum number of milliseconds it takes to execute an operation in Netscript.
+                            Setting this too low can result in poor performance if you have many scripts running.
+                            The default value is 100ms.
+                        </span>
+                    </label>
+
+                    <input type ="range" max="200" min="25"
+                        step="1" name="settingsNSExecTimeRangeVal" id="settingsNSExecTimeRangeVal" value="100">
+                    </input>
+                    <em id="settingsNSExecTimeRangeValLabel" style="font-style: normal;"></em>
+                </fieldset>
+
+                <!-- Log capacity -->
+                <fieldset>
+                    <label for="settingsNSLogRangeVal" class="tooltip">Netscript log size:
+                        <span class="tooltiptext">
+                            The maximum number of lines a script's logs can hold. Setting this too high
+                            can cause the game to use a lot of memory if you have many scripts running.
+                            The default value is 50.
+                        </span>
+                    </label>
+
+                    <input type="range" max="100" min="20"
+                        step="1" name="settingsNSLogRangeVal" id="settingsNSLogRangeVal" value="50">
+                    </input>
+                    <em id="settingsNSLogRangeValLabel" style="font-style: normal;"></em>
+                </fieldset>
+
+                <!-- Port capacity -->
+                <fieldset>
+                    <label for="settingsNSPortRangeVal" class="tooltip">Netscript port size:
+                        <span class="tooltiptext">
+                            The maximum number of entries that can be written to a port using Netscript's
+                            write() function. Setting this too high can cause the game to use a lot of memory.
+                            The default value is 50.
+                        </span>
+                    </label>
+
+                    <input type="range" max="100" min="20"
+                        step="1" name="settingsNSPortRangeVal" id="settingsNSPortRangeVal" value="50">
+                    </input>
+                    <em id="settingsNSPortRangeValLabel" style="font-style: normal;"></em>
+                </fieldset>
+
+                <!-- Suppress messages -->
+                <fieldset>
+                    <label for="settingsSuppressMessages" class="tooltip">Suppress Messages:
+                        <span class="tooltiptext">
+                            If this is set, then any messages you receive will not appear as popups
+                            on the screen. They will still get sent to your home computer as '.msg' files
+                            and can be viewed with the 'cat' Terminal command.
+                        </span>
+                    </label>
+                    <input type="checkbox" name="settingsSuppressMessages" id="settingsSuppressMessages">
+                </fieldset>
+
+                <!-- Suppress faction invites -->
+                <fieldset>
+                    <label for="settingsSuppressFactionInvites" class="tooltip">Suppress Faction Invites:
+                        <span class="tooltiptext">
+                            If this is set, then any faction invites you receive will not appear as popups
+                            on the screen. Your outstanding faction invites can be viewed in the 'Factions' page.
+                        </span>
+                    </label>
+                    <input type="checkbox" name="settingsSuppressFactionInvites" id="settingsSuppressFactionInvites">
+                </fieldset>
+
+                <!-- Donate button -->
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+                ">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </div>
+            <div id="game-options-right-panel">
+                <a class="a-link-button" style="display:block;" href="https://bitburner.wikia.com/wiki/Changelog" target="_blank"> Changelog </a>
+                <a class="a-link-button" style="display:block;" href="https://bitburner.wikia.com" target="_blank">Wiki</a>
+                <a class="a-link-button" style="display:block;", href="https://www.reddit.com/r/bitburner" target="_blank">Subreddit</a>
+                <a id="save-game-link" class="a-link-button" style="display:inline-block;width:46%;"> Save Game </a>
+                <a id="delete-game-link" class="a-link-button" style="display:inline-block;width:46%;"> Delete Game </a>
+                <a id="export-game-link" class="a-link-button" style="display:inline-block;width:46%;"> Export Game </a>
+                <input type="file" id="import-game-file-selector" name="file"/>
+                <a id="import-game-link" class="a-link-button" style="display:inline-block;width:46%;"> Import Game </a>
+                <a id="debug-delete-scripts-link" class="a-link-button tooltip" style="display:block;width:46%;">
+                    (DEBUG) Delete Active Scripts
+                    <span class="tooltiptext">
+                        Debug option used to forcefully kill all active running scripts, in case there is a bug or some unexpected issue with the game. After
+                        using this, save the game and then reload the page.
+                    </span>
+                </a>
+                <a id="debug-soft-reset" class="a-link-button tooltip" style="display:block;width:46%;">
+                    (DEBUG) Soft Reset
+                    <span class="tooltiptext">
+                        Perform a soft reset. Resets everything as if you had just purchased an Augmentation
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Loader (Loading screen) -->
+    <div id="loader" class="loaderoverlay">
+        <div class="loaderspinner"></div>
+        <div class="loaderlabel">Loading Bitburner...</div>
+    </div>
+</body>
+    <script src="dist/bundle.js"></script>
+</html>
