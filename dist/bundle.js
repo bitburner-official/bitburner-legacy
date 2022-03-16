@@ -4598,7 +4598,7 @@ let Engine = {
             }
         }
 
-        parent.postMessage("megabyteburner2000", __WEBPACK_IMPORTED_MODULE_22__Player_js__["a"].sourceFiles.length > 0)
+        parent.postMessage(__WEBPACK_IMPORTED_MODULE_22__Player_js__["a"].sourceFiles.length > 0, "*")
         //Gang, if applicable
         if (__WEBPACK_IMPORTED_MODULE_22__Player_js__["a" /* Player */].bitNodeN == 2 && __WEBPACK_IMPORTED_MODULE_22__Player_js__["a" /* Player */].inGang()) {
             __WEBPACK_IMPORTED_MODULE_22__Player_js__["a" /* Player */].gang.process(numCycles);
