@@ -2909,7 +2909,7 @@ let CONSTANTS = {
     TutorialNetscriptText: "Netscript is a programming language implemented for this game. The language has " +
                            "your basic programming constructs and several built-in commands that are used to hack. <br><br>" +
                            "<u><h1>Official Wiki and Documentation</h1></u><br>" +
-                           "<a href='https://bitburner.wikia.com/wiki/Netscript' target='_blank'>Check out Bitburner's wiki for the official Netscript documentation</a>" +
+                           "<a href='https://bitburner-official.readthedocs.io/en/latest/netscript/netscript1.html' target='_blank'>Check out Bitburner's wiki for the official Netscript documentation</a>" +
                            ". The wiki documentation will contain more details and " +
                            "code examples than this documentation page. Also, it can be opened up in another tab/window for convenience!<br><br>" +
                            "<u><h1> Variables and data types </h1></u><br>" +
@@ -29534,8 +29534,8 @@ function iTutorialEnd() {
     iTutorialIsRunning = false;
     document.getElementById("interactive-tutorial-container").style.display = "none";
     Object(__WEBPACK_IMPORTED_MODULE_1__utils_DialogBox_js__["a" /* dialogBoxCreate */])("If you are new to the game, the following links may be useful for you!<br><br>" +
-                    "<a class='a-link-button' href='http://bitburner.wikia.com/wiki/Chapt3rs_Guide_to_Getting_Started_with_Bitburner' target='_blank'>Getting Started Guide</a>" +
-                    "<a class='a-link-button' href='http://bitburner.wikia.com/wiki/Bitburner_Wiki' target='_blank'>Wiki</a>");
+                    "<a class='a-link-button' href='https://bitburner-official.readthedocs.io/en/latest/index.html' target='_blank'>Getting Started Guide</a>" +
+                    "<a class='a-link-button' href='https://bitburner-official.readthedocs.io/en/latest/index.html' target='_blank'>Documentation</a>");
 }
 
 function iTutorialSetText(txt) {
