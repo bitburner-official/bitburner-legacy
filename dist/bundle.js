@@ -3965,7 +3965,6 @@ let Engine = {
     },
     currentPage:    null,
 
-
     //Time variables (milliseconds unix epoch time)
     _lastUpdate: new Date().getTime(),
     _idleSpeed: 200,    //Speed (in ms) at which the main loop is updated
@@ -24558,6 +24557,7 @@ function updateTerminalScroll() {
 
 function postNetburnerText() {
 	post("Bitburner v" + __WEBPACK_IMPORTED_MODULE_1__Constants_js__["a" /* CONSTANTS */].Version);
+    post("Do not report anything in here as a bug or suggest changes, they will be ignored."); //couldn't figure out how to print this out only once
 }
 
 //Defines key commands in terminal
